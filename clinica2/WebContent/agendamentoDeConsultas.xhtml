@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+
+	<title>Agendamento de Consulta</title>
+		<h:outputStylesheet name ="modelo.css" library ="resources/css" />
+		<link rel="stylesheet" href="resources/css/style.css" type="text/css"/>
+
+</h:head>
+
+<h:body>
+
+	<h:form>
+			<div align="center">
+			<h:outputFormat>Cadastro de Consulta</h:outputFormat>
+			
+		
+			<h:panelGrid columns="2">
+
+				<h:outputFormat>Medico:</h:outputFormat>
+				
+				<h:selectOneMenu value="#{atendimentoBean.atendimento.medicoId}" var="medico">
+					<f:selectItem itemLabel="Selecione" noSelectionOption="true"/>
+					<f:selectItems
+						value="#{medicoBean.medicos}"
+						var="medico"
+						itemValue="#{medico.id}"
+						itemLabel="#{medico.nome}"></f:selectItems>
+				</h:selectOneMenu>
+				
+				<h:outputFormat>Paciente:</h:outputFormat>
+	
+				<h:selectOneMenu value="#{atendimentoBean.atendimento.pacienteId}" var="paciente">
+					<f:selectItem itemLabel="Selecione " noSelectionOption="true"/>
+					<f:selectItems
+						value="#{pacienteBean.pacientes}"
+						var="paciente"
+						itemValue="#{paciente.id}"
+						itemLabel="#{paciente.nome}"></f:selectItems>
+				</h:selectOneMenu>
+
+				<br></br>
+				Data da Consulta: <h:inputText value="#{atendimentoBean.atendimento.dataDaConsulta}"/>
+				Hora da Consulta: <h:inputText value="#{atendimentoBean.atendimento.horaDaConsulta}"/>
+
+
+		</h:panelGrid>
+			<h:panelGrid columns="2">
+				<h:commandButton  style="background:#424874;color:#D6E5E3" value="Salvar" action="#{atendimentoBean.salvarAtendimento(atendimentoBean.atendimento)}"/>
+				<h:button  style="background:#424874;color:#D6E5E3" value=" Voltar " outcome="principal" />
+			</h:panelGrid>
+		</div>
+	
+	</h:form>
+
+</h:body>
+
+
+
+</html>

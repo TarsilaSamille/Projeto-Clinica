@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+
+<h:head>
+
+	<title>Cadastro de Medico</title>
+
+</h:head>
+
+<h:body>
+
+	<h:form>
+		<h:panelGrid columns="2">
+			Nome: <h:inputText value="#{medicoBean.medico.nome}"/>
+			Idade: <h:inputText value="#{medicoBean.medico.idade}"/>
+			Cidade: <h:inputText value="#{medicoBean.medico.cidade}"/>
+			Cpf: <h:inputText value="#{medicoBean.medico.cpf}"/>
+			Crm: <h:inputText value="#{medicoBean.medico.crm}"/>
+			Especialidade: <h:inputText value="#{medicoBean.medico.especialidade}"/>
+			<h:commandButton value="Salvar" action="#{medicoBean.salvarMedico(medicoBean.medico)}"/>
+		</h:panelGrid>
+	
+	</h:form>
+
+</h:body>
+
+
+
+</html>

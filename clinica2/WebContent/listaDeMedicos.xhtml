@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+
+	<title>Lista de Medico</title>
+		 <h:outputStylesheet name ="modelo.css" library ="resources/css" />
+	<link rel="stylesheet" href="resources/css/style.css" type="text/css"/>
+
+</h:head>
+
+<h:body>
+	<h:form>
+		<div align="center" >
+				<h:outputFormat>Lista de Medicos</h:outputFormat>
+		
+	
+		<h:dataTable value="#{medicoBean.medicos}" var="medico" border="4">
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+					#{medico.nome}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Idade</f:facet>
+					#{medico.idade}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Cidade</f:facet>
+					#{medico.cidade}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">CPF</f:facet>
+					#{medico.cpf}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">CPF</f:facet>
+	
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Ações</f:facet>
+				<h:commandLink action="#{medicoBean.apagarMedico(medico)}"><f:ajax execute="@form" render="@form" />Excluir</h:commandLink>
+			</h:column>
+		
+		</h:dataTable> 
+		<h:panelGrid columns="2">
+			<h:button  style="background:#424874;color:#D6E5E3"  value=" Novo Cadastro  " outcome="cadastroMedico" />
+			<h:button  style="background:#424874;color:#D6E5E3"  value=" Voltar " outcome="principal" />
+		</h:panelGrid>
+		</div>
+	</h:form>
+
+</h:body>
+
+
+
+</html>

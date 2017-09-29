@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+
+	<title>Cadastro de Medico</title>
+		 <h:outputStylesheet name ="modelo.css" library ="resources/css" />
+		<link rel="stylesheet" href="resources/css/style.css" type="text/css"/>
+
+</h:head>
+
+<h:body>
+
+	<h:form>
+		<div align="center">
+				<h:outputFormat>Cadastro de Medico</h:outputFormat>
+		
+		
+		<h:panelGrid  enctype="multipart/form-data" columns="2">
+			Nome: <h:inputText value="#{medicoBean.medico.nome}"/>
+			Idade: <h:inputText value="#{medicoBean.medico.idade}"/>
+			Cidade: <h:inputText value="#{medicoBean.medico.cidade}"/>
+			Cpf: <h:inputText value="#{medicoBean.medico.cpf}"/>
+			Crm: <h:inputText value="#{medicoBean.medico.crm}"/>
+			Especialidade: <h:inputText value="#{medicoBean.medico.especialidade}"/>
+		</h:panelGrid>
+		
+			
+
+			
+			<h:panelGrid columns="2">
+				<h:commandButton  style="background:#424874;color:#D6E5E3" value="Salvar" action="#{medicoBean.salvarMedico(medicoBean.medico)}"/>
+				<h:button  style="background:#424874;color:#D6E5E3" value=" Voltar " outcome="principal" />
+			</h:panelGrid>
+			
+				</div>
+			
+			
+		</h:form>
+		
+		
+			<h:form enctype="multipart/form-data">
+			<p:growl showDetail="true" />
+
+			<h:panelGrid columns="2">
+				<p:outputLabel value="Arquivo: " for="fileUpload" />
+				<p:fileUpload value="#{uploadFiles.uploadedFile}"
+					id="fileUpload" mode="simple" skinSimple="true" />
+
+				<h:outputText />
+				<p:commandButton value="Enviar" ajax="false"
+					actionListener="#{uploadFiles.upload}" />
+			</h:panelGrid>
+
+			<p:spacer height="20px" />
+
+			<p:dataTable value="#{uploadFiles.arquivos}" var="file">
+				<f:facet name="header">
+			        Arquivos
+			    </f:facet>
+				<p:column width="200">
+					<p:commandButton value="Baixar" ajax="false"
+						actionListener="#{descarregadorBean.descarregar(file)}"
+						icon="ui-icon-arrowthick-1-s">
+						<p:fileDownload value="#{descarregadorBean.streamedContent}" />
+					</p:commandButton>
+				</p:column>
+
+				<p:column headerText="Nome">
+					<h:outputText value="#{file.name}" />
+				</p:column>
+			</p:dataTable>
+			
+			
+		
+	
+	</h:form>
+
+</h:body>
+
+
+
+</html>

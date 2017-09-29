@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+
+	<title>Lista de clinica</title>
+
+</h:head>
+
+<h:body>
+
+	<h:form>
+		<h:dataTable value="#{clinicaBean.clinicas}" var="clinica" border="4">
+			<h:column>
+				<f:facet name="header">Nome</f:facet>
+					#{clinica.nome}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">usuario</f:facet>
+					#{clinica.usuario}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">senha</f:facet>
+					#{clinica.senha}
+			</h:column>
+			
+			
+			<h:column>
+				<f:facet name="header">Ações</f:facet>
+				<h:commandLink  style="background:#424874;color:#D6E5E3" action="#{clinicaBean.apagarClinica(clinica)}"><f:ajax execute="@form" render="@form" />Excluir</h:commandLink>
+			</h:column>
+		
+		</h:dataTable> 
+	</h:form>
+
+</h:body>
+
+
+
+</html>

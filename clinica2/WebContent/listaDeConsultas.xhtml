@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:h="http://java.sun.com/jsf/html">
+<h:head>
+
+	<title>Lista de Consulta</title>
+			<h:outputStylesheet name ="modelo.css" library ="resources/css" />
+		<link rel="stylesheet" href="resources/css/style.css" type="text/css"/>
+
+</h:head>
+
+<h:body>
+				<div align="center">
+
+	<h:form>
+	
+		<h:dataTable value="#{consultaBean.consultas}" var="consulta" border="4">
+			
+			<h:column>
+				<f:facet name="header">Data da Consulta</f:facet>
+					#{consulta.dataDaConsulta}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Hora da Consulta</f:facet>
+					#{consulta.horaDaConsulta}
+			</h:column>
+			
+			<h:column>
+				<f:facet name="header">Ações</f:facet>
+				<h:commandLink  style="background:#424874;color:#D6E5E3"  action="#{medicoBean.apagarMedico(medico)}"><f:ajax execute="@form" render="@form" />Excluir</h:commandLink>
+			</h:column>
+		
+		</h:dataTable> 
+	</h:form>
+					<h:panelGrid columns="2">
+		
+			<h:button  style="background:#424874;color:#D6E5E3" value=" Voltar " outcome="principal" />
+			</h:panelGrid>
+			</div>
+
+</h:body>
+
+
+
+</html>

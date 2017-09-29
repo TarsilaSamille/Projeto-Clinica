@@ -1,0 +1,10 @@
+@CHARSET "ISO-8859-1";
+@import url('https://fonts.googleapis.com/css?family=Slabo+27px');
+
+body{
+	background:#DCD6F7;
+	font-family: 'Slabo 27px', serif;
+	font-size:20px;
+}
+
+
