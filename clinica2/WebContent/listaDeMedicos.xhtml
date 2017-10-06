@@ -5,7 +5,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
 
 	<title>Lista de Medico</title>
@@ -17,45 +18,45 @@
 <h:body>
 	<h:form>
 		<div align="center" >
-				<h:outputFormat>Lista de Medicos</h:outputFormat>
+		<p:outputLabel>Lista de Medicos</p:outputLabel>
 		
 	
-		<h:dataTable value="#{medicoBean.medicos}" var="medico" border="4">
-			<h:column>
+		<p:dataTable value="#{medicoBean.medicos}" var="medico" border="4">
+			<p:column>
 				<f:facet name="header">Nome</f:facet>
 					#{medico.nome}
-			</h:column>
+			</p:column>
 			
-			<h:column>
+			<p:column>
 				<f:facet name="header">Idade</f:facet>
 					#{medico.idade}
-			</h:column>
+			</p:column>
 			
-			<h:column>
+			<p:column>
 				<f:facet name="header">Cidade</f:facet>
 					#{medico.cidade}
-			</h:column>
+			</p:column>
 			
-			<h:column>
+			<p:column>
 				<f:facet name="header">CPF</f:facet>
 					#{medico.cpf}
-			</h:column>
+			</p:column>
 			
-			<h:column>
+			<p:column>
 				<f:facet name="header">CPF</f:facet>
 	
-			</h:column>
+			</p:column>
 			
-			<h:column>
+			<p:column>
 				<f:facet name="header">Ações</f:facet>
 				<h:commandLink action="#{medicoBean.apagarMedico(medico)}"><f:ajax execute="@form" render="@form" />Excluir</h:commandLink>
-			</h:column>
+			</p:column>
 		
-		</h:dataTable> 
-		<h:panelGrid columns="2">
-			<h:button  style="background:#424874;color:#D6E5E3"  value=" Novo Cadastro  " outcome="cadastroMedico" />
-			<h:button  style="background:#424874;color:#D6E5E3"  value=" Voltar " outcome="principal" />
-		</h:panelGrid>
+		</p:dataTable> 
+		<p:panelGrid columns="2">
+			<p:button  style="background:#424874;color:#D6E5E3"  value=" Novo Cadastro  " outcome="cadastroMedico" />
+			<p:button  style="background:#424874;color:#D6E5E3"  value=" Voltar " outcome="principal" />
+		</p:panelGrid>
 		</div>
 	</h:form>
 

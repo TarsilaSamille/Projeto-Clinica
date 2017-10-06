@@ -5,7 +5,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 
@@ -16,12 +17,12 @@
 <h:body>
 
 	<h:form>
-		<h:panelGrid columns="2">
-			Nome: <h:inputText value="#{clinicaBean.clinica.nome}"/>
-			usuario: <h:inputText value="#{clinicaBean.clinica.usuario}"/>
-			senha: <h:inputText value="#{clinicaBean.clinica.senha}"/>
+		<p:panelGrid columns="2">
+			Nome: <p:inputText value="#{clinicaBean.clinica.nome}"/>
+			usuario: <p:inputText value="#{clinicaBean.clinica.usuario}"/>
+			senha: <p:inputText value="#{clinicaBean.clinica.senha}"/>
 			<h:commandButton value="Salvar" action="#{clinicaBean.salvarClinica(clinicaBean.clinica)}"/>
-		</h:panelGrid>
+		</p:panelGrid>
 	
 	</h:form>
 

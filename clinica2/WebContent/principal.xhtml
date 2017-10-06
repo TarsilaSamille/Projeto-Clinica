@@ -5,14 +5,15 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 
 	<title>Sistema</title>
 	
-	 <h:outputStylesheet name ="modelo.css" library ="resources/css" />
 	<link rel="stylesheet" href="resources/css/style.css" type="text/css"/>
+		 <h:outputStylesheet name ="modelo.css" library ="resources/css" />
 	
 
 </h:head>
@@ -20,19 +21,17 @@
 <h:body>
 
 	<h:form>
-
-	<div align="center" >
-		<h:outputFormat>Opções</h:outputFormat>
-		<h:panelGrid columns="2">
-			<h:button style="background:#424874;color:#D6E5E3" value=" Cadastrar Paciente " outcome="cadastroPaciente" />
-			<h:button style="background:#424874;color:#D6E5E3" value="  Cadastrar Medico  " outcome="cadastroMedico" />
-			<h:button style="background:#424874;color:#D6E5E3" value=" Lista de Pacientes " outcome="listaDePacientes" />
-			<h:button style="background:#424874;color:#D6E5E3" value="  Lista de Medicos  " outcome="listaDeMedicos" />
-			<h:button style="background:#424874;color:#D6E5E3" value="  Agendar Consulta  " outcome="agendamentoDeConsultas" />
-			<h:button style="background:#424874;color:#D6E5E3" value=" Pesquisar Paciente " outcome="pesquisaDePacientes" />
-			
-		</h:panelGrid>
-	</div>
+		<div align="center" >
+			<p:outputLabel>Opções</p:outputLabel>
+			<p:panelGrid columns="2">
+				<p:button style="background:#424874;color:#D6E5E3" value="Cadastrar Paciente" outcome="cadastroPaciente" />
+				<p:button style="background:#424874;color:#D6E5E3" value="Cadastrar Medico" outcome="cadastroMedico" />
+				<p:button style="background:#424874;color:#D6E5E3" value="Lista de Pacientes" outcome="listaDePacientes" />
+				<p:button style="background:#424874;color:#D6E5E3" value="Lista de Medicos" outcome="listaDeMedicos" />
+				<p:button style="background:#424874;color:#D6E5E3" value="Agendar Consulta" outcome="agendamentoDeConsultas" />
+				<p:button style="background:#424874;color:#D6E5E3" value="Pesquisar Paciente" outcome="pesquisaDePacientes" />
+			</p:panelGrid>
+		</div>
 	</h:form>
 
 </h:body>

@@ -1,7 +1,6 @@
 @CHARSET "ISO-8859-1";
 
 ui-layout-north {
-	z-index: 20 !important;
 	overflow: visible !important;
 }
 .ui-layout-north .ui-layout-unit-content {
@@ -10,6 +9,18 @@ ui-layout-north {
 }
 
 .ui-widget, .ui-widget .ui-widget {
-	font-size: 12px !important;
 	
+}
+.ui-panelgrid.ui-panelgrid-blank .ui-panelgrid-content.ui-widget-content,
+.ui-panelgrid.ui-panelgrid-blank .ui-panelgrid-header.ui-widget-header,
+.ui-panelgrid.ui-panelgrid-blank .ui-panelgrid-footer.ui-widget-header,
+.ui-panelgrid.ui-panelgrid-blank .ui-panelgrid-header>tr.ui-widget-header,
+.ui-panelgrid.ui-panelgrid-blank tbody>tr.ui-widget-content,
+.ui-panelgrid.ui-panelgrid-blank tbody>tr.ui-widget-content>td.ui-panelgrid-cell,
+.ui-panelgrid.ui-panelgrid-blank .ui-panelgrid-footer>tr.ui-widget-footer {
+    background: #424874;
+}
+
+.ui-panelgrid {
+    background: #424874;
 }

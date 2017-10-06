@@ -21,7 +21,6 @@ import javax.faces.context.FacesContext;
  
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
-import org.apache.tomcat.util.http.fileupload.IOUtils;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 

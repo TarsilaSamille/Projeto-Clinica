@@ -20,25 +20,25 @@
 
 	<h:form>
 		<div align="center">
-				<h:outputFormat>Cadastro de Medico</h:outputFormat>
+				<p:outputLabel>Cadastro de Medico</p:outputLabel>
 		
 		
-		<h:panelGrid  enctype="multipart/form-data" columns="2">
-			Nome: <h:inputText value="#{medicoBean.medico.nome}"/>
-			Idade: <h:inputText value="#{medicoBean.medico.idade}"/>
-			Cidade: <h:inputText value="#{medicoBean.medico.cidade}"/>
-			Cpf: <h:inputText value="#{medicoBean.medico.cpf}"/>
-			Crm: <h:inputText value="#{medicoBean.medico.crm}"/>
-			Especialidade: <h:inputText value="#{medicoBean.medico.especialidade}"/>
-		</h:panelGrid>
+		<p:panelGrid  enctype="multipart/form-data" columns="2">
+			Nome: <p:inputText value="#{medicoBean.medico.nome}"/>
+			Idade: <p:inputText value="#{medicoBean.medico.idade}"/>
+			Cidade: <p:inputText value="#{medicoBean.medico.cidade}"/>
+			Cpf: <p:inputText value="#{medicoBean.medico.cpf}"/>
+			Crm: <p:inputText value="#{medicoBean.medico.crm}"/>
+			Especialidade: <p:inputText value="#{medicoBean.medico.especialidade}"/>
+		</p:panelGrid>
 		
 			
 
 			
-			<h:panelGrid columns="2">
-				<h:commandButton  style="background:#424874;color:#D6E5E3" value="Salvar" action="#{medicoBean.salvarMedico(medicoBean.medico)}"/>
-				<h:button  style="background:#424874;color:#D6E5E3" value=" Voltar " outcome="principal" />
-			</h:panelGrid>
+			<p:panelGrid columns="2">
+				<p:commandButton  style="background:#424874;color:#D6E5E3" value="Salvar" action="#{medicoBean.salvarMedico(medicoBean.medico)}"  />
+				<p:button  style="background:#424874;color:#D6E5E3" value=" Voltar " outcome="principal" />
+			</p:panelGrid>
 			
 				</div>
 			
@@ -46,7 +46,8 @@
 		</h:form>
 		
 		
-			<h:form enctype="multipart/form-data">
+		<h:form enctype="multipart/form-data">
+		
 			<p:growl showDetail="true" />
 
 			<h:panelGrid columns="2">

@@ -5,7 +5,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 
@@ -19,12 +20,12 @@
 
 	<h:form>
 			<div align="center">
-			<h:outputFormat>Cadastro de Consulta</h:outputFormat>
+			<p:outputLabel>Cadastro de Consulta</p:outputLabel>
 			
 		
-			<h:panelGrid columns="2">
+			<p:panelGrid columns="2">
 
-				<h:outputFormat>Medico:</h:outputFormat>
+				<p:outputLabel>Medico:</p:outputLabel>
 				
 				<h:selectOneMenu value="#{atendimentoBean.atendimento.medicoId}" var="medico">
 					<f:selectItem itemLabel="Selecione" noSelectionOption="true"/>
@@ -35,9 +36,9 @@
 						itemLabel="#{medico.nome}"></f:selectItems>
 				</h:selectOneMenu>
 				
-				<h:outputFormat>Paciente:</h:outputFormat>
+				<p:outputLabel>Paciente:</p:outputLabel>
 	
-				<h:selectOneMenu value="#{atendimentoBean.atendimento.pacienteId}" var="paciente">
+				<h:selectOneMenu value="#{atendimentoBean.atendimento.pacienteId}" var="paciente" >
 					<f:selectItem itemLabel="Selecione " noSelectionOption="true"/>
 					<f:selectItems
 						value="#{pacienteBean.pacientes}"
@@ -47,15 +48,17 @@
 				</h:selectOneMenu>
 
 				<br></br>
-				Data da Consulta: <h:inputText value="#{atendimentoBean.atendimento.dataDaConsulta}"/>
-				Hora da Consulta: <h:inputText value="#{atendimentoBean.atendimento.horaDaConsulta}"/>
+				Data da Consulta: <p:inputText value="#{atendimentoBean.atendimento.dataDaConsulta}"/>
+				Hora da Consulta: <p:inputText value="#{atendimentoBean.atendimento.horaDaConsulta}"/>
 
 
-		</h:panelGrid>
-			<h:panelGrid columns="2">
-				<h:commandButton  style="background:#424874;color:#D6E5E3" value="Salvar" action="#{atendimentoBean.salvarAtendimento(atendimentoBean.atendimento)}"/>
-				<h:button  style="background:#424874;color:#D6E5E3" value=" Voltar " outcome="principal" />
-			</h:panelGrid>
+		</p:panelGrid>
+		
+		
+			<p:panelGrid columns="2">
+				<p:commandButton  style="background:#424874;color:#D6E5E3" value="Salvar" action="#{atendimentoBean.salvarAtendimento(atendimentoBean.atendimento)}"/>
+				<p:button  style="background:#424874;color:#D6E5E3" value=" Voltar " outcome="principal" />
+			</p:panelGrid>
 		</div>
 	
 	</h:form>

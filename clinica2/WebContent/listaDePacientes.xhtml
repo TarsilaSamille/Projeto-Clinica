@@ -5,7 +5,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 
 <h:head>
 
@@ -20,40 +21,40 @@
 	<h:form>
 		<div align="center" >
 		
-						<h:outputFormat>Lista de Pacientes</h:outputFormat>
+		<p:outputLabel>Lista de Pacientes</p:outputLabel>
 		
 	
-		<h:dataTable value="#{pacienteBean.pacientes}" var="paciente" border="4">
-			<h:column>
+		<p:dataTable value="#{pacienteBean.pacientes}" var="paciente" border="4">
+			<p:column> 
 				<f:facet name="header">Nome</f:facet>
 					#{paciente.nome}
-			</h:column>
+			</p:column>
 			
-			<h:column>
+			<p:column>
 				<f:facet name="header">Idade</f:facet>
 					#{paciente.idade}
-			</h:column>
+			</p:column>
 			
-			<h:column>
+			<p:column>
 				<f:facet name="header">Cidade</f:facet>
 					#{paciente.cidade}
-			</h:column>
+			</p:column>
 			
-			<h:column>
+			<p:column>
 				<f:facet name="header">CPF</f:facet>
 					#{paciente.cpf}
-			</h:column>
+			</p:column>
 			
-			<h:column>
+			<p:column>
 				<f:facet name="header">Ações</f:facet>
 				<h:commandLink action="#{pacienteBean.apagarPaciente(paciente)}"><f:ajax execute="@form" render="@form" />Excluir</h:commandLink>
-			</h:column>
+			</p:column>
 			
-		</h:dataTable> 
-		<h:panelGrid columns="2">
-			<h:button  style="background:#424874;color:#D6E5E3"  value=" Novo Cadastro  " outcome="cadastroPaciente" />
-			<h:button  style="background:#424874;color:#D6E5E3"  value=" Voltar " outcome="principal" />
-		</h:panelGrid>
+		</p:dataTable> 
+		<p:panelGrid columns="2">
+			<p:button  style="background:#424874;color:#D6E5E3"  value=" Novo Cadastro  " outcome="cadastroPaciente" />
+			<p:button  style="background:#424874;color:#D6E5E3"  value=" Voltar " outcome="principal" />
+		</p:panelGrid>
 		</div>
 	</h:form>
 

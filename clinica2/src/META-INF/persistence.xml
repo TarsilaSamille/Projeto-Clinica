@@ -5,8 +5,8 @@
 http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd">
 	<persistence-unit name="default">
 		<properties>
-			<property name="hibernate.hbm2ddl.auto" value="create" />
-			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/clinicas?createDatabaseIfNotExist=true" />
+			<property name="hibernate.hbm2ddl.auto" value="update" />
+			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost/clinica2?createDatabaseIfNotExist=true" />
 			<property name="javax.persistence.jdbc.user" value="aluno" />
 			<property name="javax.persistence.jdbc.password" value="aluno" />
 			<property name="javax.persistence.jdbc.driver" value="com.mysql.jdbc.Driver" />

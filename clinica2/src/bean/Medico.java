@@ -2,7 +2,6 @@ package bean;
 
 
 
-import java.io.Serializable;
 
 import javax.persistence.Basic;
 import javax.persistence.Entity;
@@ -14,7 +13,7 @@ import javax.persistence.Lob;
 import org.primefaces.model.UploadedFile;
 
 @Entity
-public class Medico implements Serializable{
+public class Medico {
 	
 	@Id @GeneratedValue
 	private long id;

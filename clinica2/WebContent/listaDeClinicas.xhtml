@@ -5,7 +5,8 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml"
 	xmlns:f="http://java.sun.com/jsf/core"
-	xmlns:h="http://java.sun.com/jsf/html">
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:p="http://primefaces.org/ui">
 <h:head>
 
 	<title>Lista de clinica</title>
@@ -15,29 +16,29 @@
 <h:body>
 
 	<h:form>
-		<h:dataTable value="#{clinicaBean.clinicas}" var="clinica" border="4">
-			<h:column>
+		<p:dataTable value="#{clinicaBean.clinicas}" var="clinica" border="4">
+			<p:column>
 				<f:facet name="header">Nome</f:facet>
 					#{clinica.nome}
-			</h:column>
+			</p:column>
 			
-			<h:column>
+			<p:column>
 				<f:facet name="header">usuario</f:facet>
 					#{clinica.usuario}
-			</h:column>
+			</p:column>
 			
-			<h:column>
+			<p:column>
 				<f:facet name="header">senha</f:facet>
 					#{clinica.senha}
-			</h:column>
+			</p:column>
 			
 			
-			<h:column>
+			<p:column>
 				<f:facet name="header">Ações</f:facet>
 				<h:commandLink  style="background:#424874;color:#D6E5E3" action="#{clinicaBean.apagarClinica(clinica)}"><f:ajax execute="@form" render="@form" />Excluir</h:commandLink>
-			</h:column>
+			</p:column>
 		
-		</h:dataTable> 
+		</p:dataTable> 
 	</h:form>
 
 </h:body>

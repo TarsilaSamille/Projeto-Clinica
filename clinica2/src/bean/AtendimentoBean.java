@@ -5,7 +5,6 @@ import javax.faces.bean.ManagedBean;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import classes.*;
 import util.JPAUtil;
 
 
@@ -37,7 +36,7 @@ public class AtendimentoBean {
 		
 		em.close();
 		
-		return "listaDePacientes";
+		return "historicoDeConsultas";
 		
 	}
 
