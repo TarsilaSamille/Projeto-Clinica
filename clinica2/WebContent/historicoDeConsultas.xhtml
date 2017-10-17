@@ -21,25 +21,25 @@
 <h:body>
 
 	<h:form>
-		<p:dataTable value="#{atendimentoBean.atendimentos}" var="atendimento" border="4">
+		<p:dataTable value="#{atendimentoBean.listar()}" var="atendimento" border="4">
 			<p:column>
-				<f:facet name="header">dataDaConsulta</f:facet>
+				<f:facet name="header">Data Da Consulta</f:facet>
 					#{atendimento.dataDaConsulta}
 			</p:column>
 			
 			<p:column>
-				<f:facet name="header">horaDaConsulta</f:facet>
+				<f:facet name="header">Hora Da Consulta</f:facet>
 					#{atendimento.horaDaConsulta}
 			</p:column>
 			
 			<p:column>
-				<f:facet name="header">medicoId</f:facet>
-					#{atendimento.medicoId}
+				<f:facet name="header">Medico Id</f:facet>
+					#{medicoBean.pesquisarMedicoPorId(atendimento.medicoId).nome}
 			</p:column>	
 
 			<p:column>
-				<f:facet name="header">pacienteId</f:facet>
-					#{atendimento.pacienteId}
+				<f:facet name="header">Paciente Id</f:facet>
+					#{pacienteBean.pesquisarPacientePorId(atendimento.pacienteId).nome}
 			</p:column>
 			
 			<p:column>
@@ -50,7 +50,7 @@
 			
 			<p:column>
 				<f:facet name="header">Ações</f:facet>
-				<h:commandLink  style="background:#424874;color:#D6E5E3" action="#{atendimentoBean.apagarAtendimento(atendimento)}"><f:ajax execute="@form" render="@form" />Excluir</h:commandLink>
+				<h:commandLink  style="background:#424874;color:#D6E5E3" action="#{atendimentoBean.apagar(atendimento)}"><f:ajax execute="@form" render="@form" />Excluir</h:commandLink>
 			</p:column>
 		
 		</p:dataTable> 

@@ -5,15 +5,17 @@ import javax.faces.bean.ManagedBean;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-import util.JPAUtil;
-
+import util.*;
 
 @ManagedBean
-public class PacienteBean {
+public class PacienteBean extends GenericDao< Paciente, Long> {
 	
 	private Paciente paciente = new Paciente();
 	
-	private List<Paciente> pacientes;
+    public PacienteBean() {
+        super(Paciente.class);
+     }   
+	
 	private List<Paciente> pacientesPesquisados;
 	
 	private String textoDaPesquisa;
@@ -42,33 +44,13 @@ public class PacienteBean {
 		this.paciente = umPaciente;
 	}
 	
-	public String salvarPaciente(Paciente umPaciente) {
-		EntityManager em = JPAUtil.getEntityManager();
-		
-		em.getTransaction().begin();
-		em.persist(umPaciente);
-		em.getTransaction().commit();
-		
-		em.close();
+	
+	public String salvarButao(Paciente umPaciente) {
+		salvar(umPaciente);		
 		
 		return "listaDePacientes";
 		
 	}
-	
-	
-	public List<Paciente> getPacientes() {
-		if(this.pacientes == null) {
-			EntityManager emde = JPAUtil.getEntityManager();
-			
-			Query q = emde.createQuery("select a from Paciente a", Paciente.class);
-			
-			this.pacientes = q.getResultList();
-			emde.close();
-		}
-		
-		return pacientes;
-	}
-	
 	
 	
 	public List<Paciente> pesquisarPaciente() {
@@ -86,15 +68,17 @@ public class PacienteBean {
 		return pacientesPesquisados;
 	}
 	
-	public void apagarPaciente(Paciente umPaciente) {
-		EntityManager emde = JPAUtil.getEntityManager();
-		
-		emde.getTransaction().begin();
-		umPaciente = emde.merge(umPaciente); //n faço ideia do que é isso
-		emde.remove(umPaciente);
-		emde.getTransaction().commit();
-		emde.close();
-		
+	public Paciente pesquisarPacientePorId(long idPaciente) {
+		EntityManager em = JPAUtil.getEntityManager();
+		Paciente paciente = null;
+	    try {
+	      //Consulta uma pessoa pelo seu ID.
+	    	paciente = em.find(Paciente.class, idPaciente);
+	    } finally {
+	    	em.close();
+	    }
+	    return paciente;
 	}
+	
 
 }

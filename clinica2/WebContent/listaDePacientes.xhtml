@@ -24,7 +24,7 @@
 		<p:outputLabel>Lista de Pacientes</p:outputLabel>
 		
 	
-		<p:dataTable value="#{pacienteBean.pacientes}" var="paciente" border="4">
+		<p:dataTable value="#{pacienteBean.listar()}" var="paciente" border="4">
 			<p:column> 
 				<f:facet name="header">Nome</f:facet>
 					#{paciente.nome}
@@ -47,7 +47,7 @@
 			
 			<p:column>
 				<f:facet name="header">Ações</f:facet>
-				<h:commandLink action="#{pacienteBean.apagarPaciente(paciente)}"><f:ajax execute="@form" render="@form" />Excluir</h:commandLink>
+				<h:commandLink action="#{pacienteBean.apagar(paciente)}"><f:ajax execute="@form" render="@form" />Excluir</h:commandLink>
 			</p:column>
 			
 		</p:dataTable> 

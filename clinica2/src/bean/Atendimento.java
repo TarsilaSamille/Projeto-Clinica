@@ -14,10 +14,13 @@ public class Atendimento {
 	private long medicoId;
 	private long pacienteId;
 
+
 	private String dataDaConsulta;
 	private String horaDaConsulta;
 	
 	private String test;
+	
+
 	
 	public String getTest() {
 		return test;
@@ -56,7 +59,7 @@ public class Atendimento {
 	public void setHoraDaConsulta(String horaDaConsulta) {
 		this.horaDaConsulta = horaDaConsulta;
 	}
-	
+
 	
 
 

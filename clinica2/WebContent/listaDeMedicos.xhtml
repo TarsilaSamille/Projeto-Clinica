@@ -21,7 +21,7 @@
 		<p:outputLabel>Lista de Medicos</p:outputLabel>
 		
 	
-		<p:dataTable value="#{medicoBean.medicos}" var="medico" border="4">
+		<p:dataTable value="#{medicoBean.listar()}" var="medico" border="4">
 			<p:column>
 				<f:facet name="header">Nome</f:facet>
 					#{medico.nome}
@@ -42,14 +42,11 @@
 					#{medico.cpf}
 			</p:column>
 			
-			<p:column>
-				<f:facet name="header">CPF</f:facet>
-	
-			</p:column>
+
 			
 			<p:column>
 				<f:facet name="header">Ações</f:facet>
-				<h:commandLink action="#{medicoBean.apagarMedico(medico)}"><f:ajax execute="@form" render="@form" />Excluir</h:commandLink>
+				<h:commandLink action="#{medicoBean.apagar(medico)}"><f:ajax execute="@form" render="@form" />Excluir</h:commandLink>
 			</p:column>
 		
 		</p:dataTable> 

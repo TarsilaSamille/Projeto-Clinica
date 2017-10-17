@@ -12,7 +12,6 @@ import javax.faces.application.FacesMessage;
 import javax.faces.bean.ManagedBean;
 import javax.faces.context.FacesContext;
 import javax.persistence.EntityManager;
-import javax.persistence.Query;
 
 
 import javax.faces.application.FacesMessage;
@@ -24,18 +23,19 @@ import org.primefaces.model.UploadedFile;
 import org.primefaces.event.FileUploadEvent;
 import org.primefaces.model.UploadedFile;
 
+import util.GenericDao;
 import util.JPAUtil;
 
 
 @ManagedBean
-public class MedicoBean {
+public class MedicoBean extends GenericDao< Medico, Long>{
 	
 	private Medico medico = new Medico();
 	
-	EntityManager em = JPAUtil.getEntityManager();
-	
-	private List<Medico> medicos;
-	
+    public MedicoBean() {
+        super(Medico.class);
+     }   
+		
 	public static byte[] arquivo;
     public static String nomeArquivo;
 	
@@ -104,7 +104,7 @@ public class MedicoBean {
 	     }
    
 
-    public static List<File> listar() {
+    public static List<File> listarARQ() {
         File dir = diretorioRaizParaArquivos();
 
         return Arrays.asList(dir.listFiles());
@@ -153,38 +153,25 @@ public class MedicoBean {
 		this.medico = umMedico;
 	}
 	
-	public String salvarMedico(Medico umMedico) {
-		
-		em.getTransaction().begin();
-		em.persist(umMedico);
-		em.getTransaction().commit();
-		
-		em.close();
+	public String salvarButao(Medico umMedico) {
+		salvar(umMedico);				
 		
 		return "listaDeMedicos";
 		
 	}
 
-	public List<Medico> getMedicos() {
-		if(this.medicos == null) {
-			
-			Query q = em.createQuery("select a from Medico a", Medico.class);
-			
-			this.medicos = q.getResultList();
-			em.close();
-		}
-		
-		return medicos;
-	}
 	
-	public void apagarMedico(Medico umMedico) {
-		
-		em.getTransaction().begin();
-		umMedico = em.merge(umMedico); //n faço ideia do que é isso
-		em.remove(umMedico);
-		em.getTransaction().commit();
-		em.close();
-		
+	
+	public Medico pesquisarMedicoPorId(long idMedico) {
+		EntityManager em = JPAUtil.getEntityManager();
+		Medico medico = null;
+	    try {
+	      //Consulta uma pessoa pelo seu ID.
+	    	medico = em.find(Medico.class, idMedico);
+	    } finally {
+	    	em.close();
+	    }
+	    return medico;
 	}
 	
 

@@ -10,7 +10,6 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Lob;
 
-import org.primefaces.model.UploadedFile;
 
 @Entity
 public class Medico {
