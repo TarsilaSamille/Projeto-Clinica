@@ -53,32 +53,15 @@ public class PacienteBean extends GenericDao< Paciente, Long> {
 	}
 	
 	
-	public List<Paciente> pesquisarPaciente() {
-		if(this.pacientesPesquisados == null) {
-			EntityManager emde = JPAUtil.getEntityManager();
-			
-			String jpql = "select a from Paciente a where a.nome like CONCAT(:nomePaciente,'%')";			
-			Query q = emde.createQuery(jpql, Paciente.class);
-			q.setParameter("nomePaciente", this.textoDaPesquisa);
-			
-			this.pacientesPesquisados = q.getResultList();
-			emde.close();
-		}
+	public void pesquisarPaciente() {
+		this.setPacientesPesquisados(pesquisarPorNome(this.textoDaPesquisa));
 		
-		return pacientesPesquisados;
+    	for(Paciente paciente : this.pacientesPesquisados) {
+            System.out.println(paciente.getNome());
+        }
+    	
 	}
 	
-	public Paciente pesquisarPacientePorId(long idPaciente) {
-		EntityManager em = JPAUtil.getEntityManager();
-		Paciente paciente = null;
-	    try {
-	      //Consulta uma pessoa pelo seu ID.
-	    	paciente = em.find(Paciente.class, idPaciente);
-	    } finally {
-	    	em.close();
-	    }
-	    return paciente;
-	}
-	
+
 
 }

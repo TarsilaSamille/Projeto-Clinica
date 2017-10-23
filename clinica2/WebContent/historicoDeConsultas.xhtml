@@ -34,12 +34,12 @@
 			
 			<p:column>
 				<f:facet name="header">Medico Id</f:facet>
-					#{medicoBean.pesquisarMedicoPorId(atendimento.medicoId).nome}
+					#{medicoBean.encontrarPorId(atendimento.medicoId).nome}
 			</p:column>	
 
 			<p:column>
 				<f:facet name="header">Paciente Id</f:facet>
-					#{pacienteBean.pesquisarPacientePorId(atendimento.pacienteId).nome}
+					#{pacienteBean.encontrarPorId(atendimento.pacienteId).nome}
 			</p:column>
 			
 			<p:column>

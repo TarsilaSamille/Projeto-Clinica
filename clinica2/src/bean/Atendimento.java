@@ -3,6 +3,9 @@ package bean;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+
 
 
 @Entity
@@ -10,7 +13,7 @@ public class Atendimento {
 	
 	@Id @GeneratedValue
 	private long id;
-	
+
 	private long medicoId;
 	private long pacienteId;
 

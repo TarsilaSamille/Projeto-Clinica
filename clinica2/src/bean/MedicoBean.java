@@ -160,20 +160,5 @@ public class MedicoBean extends GenericDao< Medico, Long>{
 		
 	}
 
-	
-	
-	public Medico pesquisarMedicoPorId(long idMedico) {
-		EntityManager em = JPAUtil.getEntityManager();
-		Medico medico = null;
-	    try {
-	      //Consulta uma pessoa pelo seu ID.
-	    	medico = em.find(Medico.class, idMedico);
-	    } finally {
-	    	em.close();
-	    }
-	    return medico;
-	}
-	
-
 
 }
